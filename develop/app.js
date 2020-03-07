@@ -10,7 +10,50 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 ​
 const render = require("./lib/htmlRenderer");
 ​
-​
+// // Maybe implement switch
+// // const role = "manager", "engineer", "intern"
+// // switch (role){
+//     case Intern
+//     case Engineer
+//     case manager
+// } 
+function promptUserRole(){
+    return inquirer.prompt([
+        {
+            type: 'list',
+            message: 'What is your role?',
+            name: 'role',
+            choices: [
+                "manager",
+                "engineer",
+                "intern"
+            ]
+        }
+        
+        
+    ])
+}
+
+// {
+//     type: 'input',
+//     message: 'Enter your name:',
+//     name: 'name'
+// },
+// {
+//     type: 'input',
+//     message: 'Enter your ID:',
+//     name: 'id'
+// },
+// {
+//     type: 'input',
+//     message: 'Enter your enail:',
+//     name: 'email'
+// }
+
+
+
+
+
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 ​
