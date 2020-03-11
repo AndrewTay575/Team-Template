@@ -17,16 +17,37 @@ const render = require("./lib/htmlRenderer");
 //     case Engineer
 //     case manager
 // } 
-function promptUserRole(){
+function promptUser(){
     return inquirer.prompt([
         {
+            type: 'input',
+            message: "What is your manager's name?",
+            name: 'name'
+        },
+        {
+            type: 'input',
+            message: 'What is your id number?',
+            name: 'id'
+        },
+        {
+            type: 'input',
+            message: 'What is your email?',
+            name: 'email'
+        },
+        {
+            type: 'input',
+            message: 'What is your office number?',
+            name: 'officeNumber'
+        },
+        {
             type: 'list',
-            message: 'What is your role?',
+            message: 'What type of employee would you like to add next?',
             name: 'role',
             choices: [
                 "manager",
                 "engineer",
-                "intern"
+                "intern",
+                "No more employees"
             ]
         }
         
@@ -34,21 +55,6 @@ function promptUserRole(){
     ])
 }
 
-// {
-//     type: 'input',
-//     message: 'Enter your name:',
-//     name: 'name'
-// },
-// {
-//     type: 'input',
-//     message: 'Enter your ID:',
-//     name: 'id'
-// },
-// {
-//     type: 'input',
-//     message: 'Enter your enail:',
-//     name: 'email'
-// }
 
 
 
