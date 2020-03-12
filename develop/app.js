@@ -10,15 +10,14 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 ​
 const render = require("./lib/htmlRenderer");
 ​
-// // Maybe implement switch
-// // const role = "manager", "engineer", "intern"
-// // switch (role){
+//  Maybe implement switch
+//  const role = "manager", "engineer", "intern"
+//  switch role
 //     case Intern
 //     case Engineer
 //     case manager
-// } 
-function promptUser(){
-    return inquirer.prompt([
+
+const promptManager = [
         {
             type: 'input',
             message: "What is your manager's name?",
@@ -26,18 +25,89 @@ function promptUser(){
         },
         {
             type: 'input',
-            message: 'What is your id number?',
+            message: 'What is their id number?',
             name: 'id'
         },
         {
             type: 'input',
-            message: 'What is your email?',
+            message: 'What is their email?',
             name: 'email'
         },
         {
             type: 'input',
-            message: 'What is your office number?',
+            message: 'What is their office number?',
             name: 'officeNumber'
+        },
+        {
+            type: 'list',
+            message: 'What type of employee would you like to add next?',
+            name: 'role',
+            choices: [
+                "engineer",
+                "intern",
+                "No more employees"
+            ]
+        }
+        
+        
+    ]
+
+    const promptEngineer = [
+        {
+            type: 'input',
+            message: "What is your Engineer's name?",
+            name: 'name'
+        },
+        {
+            type: 'input',
+            message: 'What is their id number?',
+            name: 'id'
+        },
+        {
+            type: 'input',
+            message: 'What is their email?',
+            name: 'email'
+        },
+        {
+            type: 'input',
+            message: 'What is their github?',
+            name: 'github'
+        },
+        {
+            type: 'list',
+            message: 'What type of employee would you like to add next?',
+            name: 'role',
+            choices: [
+                "manager",
+                "engineer",
+                "intern",
+                "No more employees"
+            ]
+        }
+    
+    
+]
+
+    const promptIntern = [
+        {
+            type: 'input',
+            message: "What is your intern's name?",
+            name: 'name'
+        },
+        {
+            type: 'input',
+            message: 'What is their id number?',
+            name: 'id'
+        },
+        {
+            type: 'input',
+            message: 'What is their email?',
+            name: 'email'
+        },
+        {
+            type: 'input',
+            message: 'What school does your intern go to?',
+            name: 'school'
         },
         {
             type: 'list',
@@ -52,8 +122,23 @@ function promptUser(){
         }
         
         
+    ]
+
+function nextEmployee() {
+    inquirer.prompt([
+        {
+            type: 'list',
+            message: 'What employee would you like to add next?',
+            name: 'role',
+            choices: [
+                "engineer",
+                "intern",
+                "No more employees"
+            ]
+        }
     ])
 }
+
 
 
 
